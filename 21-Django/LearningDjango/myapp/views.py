@@ -44,3 +44,9 @@ def page(request):
         <h1>My web page<h1>
         <h2>Created by Emmanuel Alvarado<h2>
     """)
+
+def contact(request, name=""):
+    return HttpResponse(layout+f"""
+        <h1>Contact<h1>
+        <h2>{name}<h2>
+    """)
