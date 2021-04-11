@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello-world/', views.hello_world, name="hello_world"),
     path('test-page/', views.page, name="test"),
+    path('test-page/<int:id>', views.page, name="test"),
     path('contact/', views.contact, name="contact"),
     path('contact/<str:name>', views.contact, name="contact"),
 ]

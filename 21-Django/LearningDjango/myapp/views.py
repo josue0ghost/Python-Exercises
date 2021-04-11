@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
 
@@ -13,7 +13,10 @@ layout = """
             <a href="/hello-world">Hello World</a>
         </li>
         <li>
-            <a href="/test-page">Hello World</a>
+            <a href="/test-page">Test page</a>
+        </li>
+        <li>
+            <a href="/contact">Contact</a>
         </li>
     </ul>
     <hr/>
@@ -39,7 +42,10 @@ def index(request):
 def hello_world(request):
     return HttpResponse(layout+"Hello world with Django!")
 
-def page(request):
+def page(request, id=0):
+    if id == 1:
+        return redirect('/')
+
     return HttpResponse(layout+"""
         <h1>My web page<h1>
         <h2>Created by Emmanuel Alvarado<h2>
