@@ -1,0 +1,9 @@
+pip install Django==3.2.4
+python3 -m django --version
+
+django-admin startproject SomeName
+cd SomeName
+python3 manage.py migrate
+python3 manage.py runserver
+
+python3 manage.py startapp MyApp
