@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% comment 'this is a comment' %}
+    <p>this will not render</p>
+{% endcomment %}
+
+
+{% block content %}
+{% if my_var and my_var == 'some string' %}
+    {{my_var}}
+{% else %}
+    <p>my_var doesnt exists</p>
+{% endif %}
+
+
+<h1>Home</h1>
+<p>Years until 2050</p>
+<ul>
+{% for year in years %}
+    <li>{{year}} {{forloop.first}} {{forloop.last}} {{forloop.counter}} {{forloop.revcounter}}</li>
+{% empty %}
+    <p> no years left</p>
+{% endfor %}
+</ul>
+
+{% include 'today.html' with var2="sending parameters trough include" only%}
+
+{% endblock %}

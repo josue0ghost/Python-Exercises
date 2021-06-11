@@ -24,32 +24,25 @@ layout = """
 
 
 def index(request):
-    html = """
-        <h1> Home <h1>
-        <p>Years until 2050<p>
-        <ul>
-    """
     year = 2021
-    while year <= 2050:
-        if year % 2 == 0:
-            html += f"<li>{str(year)}</li>"
-        year += 1
-    
-    html += "</ul>"
+    list_of_years = range(year, 2050)
 
-    return HttpResponse(layout+html)
+    return render(request, 'index.html', {
+        'my_var': 'context data',
+        'years': list_of_years
+    })
 
 def hello_world(request):
-    return HttpResponse(layout+"Hello world with Django!")
+    return render(request, 'hola_mundo.html')
 
 def page(request, id=0):
     if id == 1:
         return redirect('/')
 
-    return HttpResponse(layout+"""
-        <h1>My web page<h1>
-        <h2>Created by Emmanuel Alvarado<h2>
-    """)
+    return render(request, 'pagina.html', {
+        'text': '',
+        'list': [1, 2, 3]
+    })
 
 def contact(request, name=""):
     return HttpResponse(layout+f"""
