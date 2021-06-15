@@ -1,4 +1,6 @@
+from django.http import response
 from django.shortcuts import render, HttpResponse, redirect
+from myapp.models import Article
 
 # Create your views here.
 
@@ -49,3 +51,24 @@ def contact(request, name=""):
         <h1>Contact<h1>
         <h2>{name}<h2>
     """)
+
+def create_article(request, title, content, public):
+    article = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+
+    # guarda info en la bdd
+    article.save()
+
+    return HttpResponse("")
+
+def article(request):
+
+    try:
+        article = Article.objects.get(pk=1, title="something", public=True)
+        response = f"articulo: {article.title}"
+    except:
+        response = "articulo no encontrado"
+    return HttpResponse(response)

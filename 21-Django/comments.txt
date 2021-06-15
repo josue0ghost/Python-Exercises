@@ -7,3 +7,12 @@ python3 manage.py migrate
 python3 manage.py runserver
 
 python3 manage.py startapp MyApp
+
+# versioning
+python3 manage.py makemigrations
+
+# ver codigo sql
+python3 manage.py sqlmigrate myapp 0001  <-- el nombre e la aplicación y el número de la migración
+
+# hacer la migracion
+python3 manage.py migrate

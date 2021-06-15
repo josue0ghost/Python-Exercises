@@ -27,4 +27,6 @@ urlpatterns = [
     path('test-page/<int:id>', views.page, name="test"),
     path('contact/', views.contact, name="contact"),
     path('contact/<str:name>', views.contact, name="contact"),
+    path('article/', views.article, name="get_article"),
+    path('article/create/<str:title>/<str:content>/<str:public>/', views.create_article, name="create_user"),
 ]
