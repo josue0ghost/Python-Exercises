@@ -29,4 +29,7 @@ urlpatterns = [
     path('contact/<str:name>', views.contact, name="contact"),
     path('article/', views.article, name="get_article"),
     path('article/create/<str:title>/<str:content>/<str:public>/', views.create_article, name="create_user"),
+    path('article/edit/<int:id>', views.edit_article),
+    path('articles/', views.articles, name="articles"),
+    path('article/delete/<int:id>', views.delete_article, name="delete_article"),
 ]

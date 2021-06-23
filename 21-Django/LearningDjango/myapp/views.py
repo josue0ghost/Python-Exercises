@@ -72,3 +72,30 @@ def article(request):
     except:
         response = "articulo no encontrado"
     return HttpResponse(response)
+
+def edit_article(request, id):
+    article = Article.objects.get(pk=id)
+
+    article.title = "Batman"
+    article.content = "2017 movie"
+    article.public = True
+    article.save()
+
+    response = f"articulo editado: {article.title}"
+    return HttpResponse(response)
+
+def articles(request):
+    articles = Article.objects.all()
+    # articles = Article.objects.order_by('title')
+    # articles = Article.objects.order_by('-title')
+    # articles = Article.objects.all()[:5]   #---> LIMIT 5
+    # articles = Article.objects.all()[3:5]  #---> BETWEEN 3 TO 5
+    return render(request, 'articles.html', {
+        'articles': articles
+    })
+
+def delete_article(request, id):
+    article = Article.objects.get(pk=id)
+    article.delete()
+
+    return redirect('articles')
