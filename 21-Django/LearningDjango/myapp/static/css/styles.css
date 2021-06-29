@@ -102,6 +102,18 @@ nav ul li a:hover {
     padding-bottom: 2rem;
 }
 
+.box {
+    width: 40%;
+}
+
+.box input, .box label{
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.box input[type="submit"]{
+    margin-top: 0.5rem;
+}
 /* PIE DE PAGINA */
 footer {
     width: 90%;

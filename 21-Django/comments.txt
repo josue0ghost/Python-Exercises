@@ -16,3 +16,9 @@ python3 manage.py sqlmigrate myapp 0001  <-- el nombre e la aplicación y el nú
 
 # hacer la migracion
 python3 manage.py migrate
+
+# panel de administración
+python3 manage.py createsuperuser
+
+# subir archivos
+pip install Pillow

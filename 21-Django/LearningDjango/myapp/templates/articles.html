@@ -5,19 +5,31 @@ Pagina de pruebas
 {% endblock %}
 
 {% block content %}
-<h1>Article list</h1>
+  <h1>Article list</h1>
 
-<ul>
-  {% for article in articles %}
-    <li>
-      <h2>{{artile.id}} {{article.title}}</h2>
-      <p>
-        {{article.content}}
-        <a href="{% url 'delete_article' id=article.id %}">Delete</a>
-      </p>
-      <hr/>
-    </li>
-  {% endfor %}
-</ul>
+  {% if messages %}
+    {% for message in messages %}
+      <div>
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <ul>
+    {% for article in articles %}
+      <li>
+        {% if article.image.url != 'null' and article.image.url|length >= 1 %}
+          <img src="{{article.image.url}}" />
+        {% endif %}
+
+        <h2>{{artile.id}} {{article.title}}</h2>
+        <p>
+          {{article.content}}
+          <a href="{% url 'delete_article' id=article.id %}">Delete</a>
+        </p>
+        <hr/>
+      </li>
+    {% endfor %}
+  </ul>
 
 {% endblock %}

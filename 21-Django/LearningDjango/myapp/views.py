@@ -1,6 +1,8 @@
 from django.http import response
 from django.shortcuts import render, HttpResponse, redirect
 from myapp.models import Article
+from myapp.forms import FormArticle
+from django.contrib import messages
 
 # Create your views here.
 
@@ -90,6 +92,11 @@ def articles(request):
     # articles = Article.objects.order_by('-title')
     # articles = Article.objects.all()[:5]   #---> LIMIT 5
     # articles = Article.objects.all()[3:5]  #---> BETWEEN 3 TO 5
+    # articles = Article.objects.filter(title__contains="batman") # __contains, __exact, __iexact
+    # articles = Article.objects.filter(id__gt=3) # __gte, __lt, __lte (>, >=, <, <=)
+    # articles = Article.objects.filter(title="super").exclude(public=True)
+    # articles = Article.objects.filter(Q(title__contains="ss") | Q(title__contains="gg"))
+    # articles = Article.objects.raw("SLECT * FROM TABLE")
     return render(request, 'articles.html', {
         'articles': articles
     })
@@ -99,3 +106,51 @@ def delete_article(request, id):
     article.delete()
 
     return redirect('articles')
+
+
+def save_article(request):
+    if request.method == 'POST':
+
+        article = Article(
+            title = request.POST['title'],
+            content = request.POST['content'],
+            public = request.POST['public']
+        )
+
+        # guarda info en la bdd
+        article.save()
+        return HttpResponse("")
+    else:
+        return HttpResponse("Err")
+
+def save_article_view(request):
+    return render(request, 'create_article.html')
+
+def save_full_article(request):
+
+    if request.method == 'POST':
+        form = FormArticle(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            article = Article(
+                title = data.get('title'),
+                content = data.get('content'),
+                public = data.get('public'),
+            )
+
+            # guarda info en la bdd
+            article.save()
+
+            # mensaje flash
+            messages.success(request, 'Article created')
+
+            return HttpResponse("")
+        else:
+            return HttpResponse("Err")
+    else:
+        return HttpResponse("Err")
+
+def save_full_article_view(request):
+    form = FormArticle()
+    return render(request, 'save_full_article.html', {'form': form})
