@@ -1,0 +1,122 @@
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+/* HEADER */
+
+header {
+    width: 80%;
+    height: 140px;
+    background-color: rgb(12, 61, 46);
+    margin: 0 auto;
+}
+
+#logo h1{
+    display: block;
+    margin-left: 10px;
+    margin-top: 2rem;
+    font-weight: lighter;
+    font-size: large;
+    color: white;
+    float: left;
+}
+
+#logo img {
+    display: block;
+    max-height: 100px;
+    float: left;
+}
+
+#logo {
+    margin: 0 auto;
+    width: 50%;
+    height: 130px;
+    padding-top: 10px;
+}
+
+/* NAVIGATION */
+nav {
+    display: block;
+    width: 90%;
+    height: 2.5rem;
+    background-color: rgb(36, 36, 36);
+    margin: auto;
+    border-width: 0;
+    box-shadow: 0 22px 22px gray;
+}
+
+nav ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li {
+    line-height: 2.5rem;
+    float: left;
+}
+
+nav ul li a {
+    color: white;
+    display: block;
+    padding: 0px 20px 0px 20px;
+    margin: 0 auto;
+}
+
+nav ul li a:hover {
+    background-color: #2ba977;
+    box-shadow: 0 0 5px #444 inset;
+    color: white;
+    transition: all 300ms;
+}
+
+/* CONTENIDO */
+#content {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    background-color: white;
+    border-width: 1px;
+    border-color: gray;
+    box-shadow: 0 5px 5px gray;
+}
+
+#content .title {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#content .block-content {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.box {
+    width: 40%;
+}
+
+.box input, .box label{
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.box input[type="submit"]{
+    margin-top: 0.5rem;
+}
+/* PIE DE PAGINA */
+footer {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}

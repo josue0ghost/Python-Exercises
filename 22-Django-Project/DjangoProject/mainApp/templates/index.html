@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block title %}
+
+            {% endblock %}
+            Emmanuel Alvarado
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+
+        <header>
+            <div id="logo">
+                <img src="{% static 'images/django-logo-negative.png' %}" alt="">
+                <h1>Sitio web con Django</h1>
+            </div>
+        </header>
+        <nav>    
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'aboutus' %}">About us</a>
+                </li>
+            </ul>
+            <hr/>
+        </nav>
+
+        <div id="content">
+            <h2 class="title">Título de prueba</h2>
+            <div class="block-content">
+                {% block content %}
+                    <strong>contenido del bloque original</strong>
+                {% endblock %}
+            </div>
+        </div>
+
+        <footer>
+            <hr>
+            Master en Python &copy; Emmanuel Alvarado {% now "DATE_FORMAT" %}
+        </footer>
+    </body>
+</html>
