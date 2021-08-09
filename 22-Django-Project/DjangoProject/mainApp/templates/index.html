@@ -25,8 +25,23 @@
                     <a href="{% url 'home' %}">Home</a>
                 </li>
                 <li>
-                    <a href="{% url 'aboutus' %}">About us</a>
+                    <a href="{% url 'Article list'%}">Categorías</a>
+                    <ul>
+                        {% for cat in categories %}
+                            <li>
+                                <a href="{% url 'Category' cat.0 %}">{{ cat.1 }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </li>
+                <li>
+                    <a href="{% url 'Register' %}">Registrarse</a>
+                </li>
+                {% for page in pages %}
+                    <li>
+                        <a href="{% url 'page' page.2 %}">{{ page.1 }}</a>
+                    </li>
+                {% endfor %}
             </ul>
             <hr/>
         </nav>

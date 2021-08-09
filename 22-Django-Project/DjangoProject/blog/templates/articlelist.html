@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block title %} {{title}} {% endblock title %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    
+    {% include 'list.html' %}
+
+    {% include 'pagination.html' %}
+{% endblock%}    
+<!-- safe interpreta como html y no como texto plano-->

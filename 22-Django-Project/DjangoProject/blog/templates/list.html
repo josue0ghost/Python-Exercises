@@ -1,0 +1,25 @@
+<ul>
+      {% for article in articles %}
+        <li>
+          {% if article.image != 'null' and article.image|length >= 1 %}
+            <img src="{{article.image.url}}" style="max-width:160px;"/>
+          {% endif %}
+
+
+          <p>
+            {% for categorie in article.categories.all %}
+              {{categorie}}
+            {% endfor %}
+          </p>
+
+          <h2>
+            <a href="{% url 'Article' article.id %}">{{article.title}}</a>
+          </h2>
+          
+          <p>
+            {{article.content|safe}}
+          </p>
+          <hr/>
+        </li>
+      {% endfor %}
+    </ul>

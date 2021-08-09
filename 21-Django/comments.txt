@@ -22,3 +22,6 @@ python3 manage.py createsuperuser
 
 # subir archivos
 pip install Pillow
+
+# editor de texto enriquecido
+pip isntall django-ckeditor
