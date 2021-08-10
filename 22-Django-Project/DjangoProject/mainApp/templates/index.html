@@ -24,24 +24,35 @@
                 <li>
                     <a href="{% url 'home' %}">Home</a>
                 </li>
-                <li>
-                    <a href="{% url 'Article list'%}">Categorías</a>
-                    <ul>
-                        {% for cat in categories %}
-                            <li>
-                                <a href="{% url 'Category' cat.0 %}">{{ cat.1 }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li>
-                    <a href="{% url 'Register' %}">Registrarse</a>
-                </li>
-                {% for page in pages %}
+
+                {% if user.email %}
                     <li>
-                        <a href="{% url 'page' page.2 %}">{{ page.1 }}</a>
+                        <a href="{% url 'Article list'%}">Categorías</a>
+                        <ul>
+                            {% for cat in categories %}
+                                <li>
+                                    <a href="{% url 'Category' cat.0 %}">{{ cat.1 }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                {% endfor %}
+                    {% for page in pages %}
+                        <li>
+                            <a href="{% url 'page' page.2 %}">{{ page.1 }}</a>
+                        </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{% url 'Logout' %}">Cerrar sesión</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'Login' %}">Login</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Register' %}">Registrarse</a>
+                    </li>
+                {% endif %}
+
             </ul>
             <hr/>
         </nav>

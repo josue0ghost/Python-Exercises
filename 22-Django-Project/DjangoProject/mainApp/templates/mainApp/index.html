@@ -4,4 +4,19 @@
 
 {% block content %}
     {{title}}
+
+    {% if message %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if user.email %}
+        <h2>Bienvenio, {{ user.first_name }}</h2>
+    {% else %}
+        <h2>Bienvenio</h2>
+    {% endif %}
+
 {% endblock%}    

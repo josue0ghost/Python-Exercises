@@ -128,16 +128,16 @@ nav > ul > li:hover > ul > li:hover a{
     padding-bottom: 2rem;
 }
 
-.box {
+.block-content {
     width: 40%;
 }
 
-.box input, .box label{
+.block-content input, .block-content label{
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 1px;
 }
 
-.box input[type="submit"]{
+.block-content input[type="submit"]{
     margin-top: 0.5rem;
 }
 /* PIE DE PAGINA */
