@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Cars
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <h1>Cars</h1>
+
+  <ul>
+    <li>
+      <div class="info">
+        <p>
+          Marca: {{car.1}}
+        </p>
+        <p>
+          Modelo: {{car.2}}
+        </p>
+        <p>
+          Precio: {{car.3}}
+        </p>
+        <div class="tools">
+          <a href="" >Edit</a>
+          <a href="" >Delete</a>
+        </div>
+      </div>
+      
+      <hr/>
+    </li>
+  </ul>
+
+{% endblock %}

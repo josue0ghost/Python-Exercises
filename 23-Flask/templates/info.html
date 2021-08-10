@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Info
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <h1>Info {{name|safe}}</h1>
+{% endblock %}

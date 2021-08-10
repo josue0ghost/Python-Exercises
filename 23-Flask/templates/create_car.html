@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Create
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+  {% if car %}
+    <h1>Edit car {{car.1}} {{car.2}}</h1>
+    <form action="" method="POST">
+      <label for="brand">Marca</label>
+      <input type="text" name="brand" value="{{car.1}}">
+  
+      <label for="model">Modelo</label>
+      <input type="text" name="model" value="{{car.2}}">
+  
+      <label for="price">Precio</label>
+      <input type="number" name="price" value="{{car.3}}">
+  
+      <label for="city">Ciudad</label>
+      <input type="text" name="city" value="{{car.4}}">
+  
+      <input type="submit" value="Guardar">
+    </form>
+  {% else %}
+    <h1>Create car</h1>
+    <form action="" method="POST">
+      <label for="brand">Marca</label>
+      <input type="text" name="brand">
+  
+      <label for="model">Modelo</label>
+      <input type="text" name="model">
+  
+      <label for="price">Precio</label>
+      <input type="number" name="price">
+  
+      <label for="city">Ciudad</label>
+      <input type="text" name="city">
+  
+      <input type="submit" value="Guardar">
+    </form>
+  {% endif %}
+{% endblock %}
